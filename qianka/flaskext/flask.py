@@ -177,7 +177,7 @@ class QKFlask(Flask):
                 self.webassets.directory, filename, cache_timeout=cache_timeout)
 
         self.add_url_rule(
-            '/assets/<path:filename>',
+            '%s/assets/<path:filename>' % self.config['CDN_URL_PREFIX_ASSETS'],
             endpoint='assets',
             view_func=_send_assets_file
         )
